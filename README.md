@@ -1,37 +1,37 @@
-# 🗑️ Dự Án Thùng Rác Thông Minh IoT (Smart Trash Can ESP32)
+#  Dự Án Thùng Rác Thông Minh IoT (Smart Trash Can ESP32)
 
 Dự án thùng rác thông minh sử dụng vi điều khiển **ESP32**, tích hợp cảm biến hồng ngoại, cảm biến siêu âm, động cơ servo MG995, hệ thống âm thanh 8-bit Mario, cảnh báo rác đầy qua **Telegram Bot**, và giao diện **Web Captive Portal** cho phép cấu hình trực tiếp qua điện thoại.
 
 ---
 
-## 🌟 Các Tính Năng Nổi Bật
+##  Các Tính Năng Nổi Bật
 
-1. **⚡ Mở nắp tự động không chạm:**
+1. ** Mở nắp tự động không chạm:**
    - Cảm biến hồng ngoại (IR) phát hiện tay và mở nắp ngay lập tức.
    - Cơ cấu quay Servo êm ái, mượt mà (điều khiển theo bước `moveServoSlow`).
    - Tự động đóng nắp sau 4 giây (có gia hạn nếu tay vẫn ở cảm biến).
 
-2. **🛡️ Chống kẹp tay thông minh (Anti-Pinch / Obstacle Auto-Rebound):**
+2. ** Chống kẹp tay thông minh (Anti-Pinch / Obstacle Auto-Rebound):**
    - Trong quá trình nắp đóng xuống, nếu cảm biến phát hiện có tay/vật cản, motor lập tức **dừng và bung mở ngược trở lại ngay lập tức**, phát âm thanh cảnh báo an toàn.
 
-3. **🚩 Cảnh báo trước khi nắp đóng (Pre-close Warning):**
+3. ** Cảnh báo trước khi nắp đóng (Pre-close Warning):**
    - Trước khi nắp đóng 1 giây, hệ thống phát giai điệu Mario hạ cờ nhẹ nhàng để nhắc nhở người dùng.
 
-4. **🚫 Bảo vệ chống tràn rác (Overfill Protection):**
+4. ** Bảo vệ chống tràn rác (Overfill Protection):**
    - Cảm biến siêu âm HC-SR04 đo mức rác liên tục.
    - Khi thùng rác đầy (khoảng cách < 10cm), hệ thống sẽ **từ chối mở nắp**, phát âm thanh cảnh báo Game Over và bật đèn LED đỏ.
 
-5. **🎶 Bộ âm thanh Mario 8-bit sống động:**
+5. ** Bộ âm thanh Mario 8-bit sống động:**
    - **Mở nắp / Bung nắp:** Giai điệu *Mario ăn nấm (Power-Up)* (G4 ➔ B4 ➔ D5 ➔ G5 ➔ B5 ➔ D6).
    - **Sắp đóng nắp:** Giai điệu *Mario hạ cờ (Flagpole)* nhẹ nhàng.
    - **Thùng đầy rác / Từ chối mở:** Giai điệu *Mario Game Over* kinh điển.
 
-6. **📲 Thông báo qua Telegram:**
+6. ** Thông báo qua Telegram:**
    - Tự động gửi tin nhắn báo động về điện thoại khi rác đầy:
-     > *"⚠️ Thùng rác phòng khách đã đầy (còn 8.5cm), bạn nhớ đi đổ rác nhé!"*
+     > *" Thùng rác phòng khách đã đầy (còn 8.5cm), bạn nhớ đi đổ rác nhé!"*
    - Tự động gửi thông báo xác nhận khi rác đã được dọn sạch.
 
-7. **📱 Giao diện Web Captive Portal cấu hình qua WiFi:**
+7. ** Giao diện Web Captive Portal cấu hình qua WiFi:**
    - ESP32 phát WiFi: **`ThungRac-ThongMinh`** (kết nối bằng điện thoại là tự động hiện trang cấu hình).
    - Quét và chọn mạng WiFi 2.4GHz gia đình.
    - Cài đặt Telegram Bot Token & Chat ID.
@@ -40,7 +40,7 @@ Dự án thùng rác thông minh sử dụng vi điều khiển **ESP32**, tích
 
 ---
 
-## 🔌 Sơ Đồ Đấu Nối Phần Cứng (Pinout)
+##  Sơ Đồ Đấu Nối Phần Cứng (Pinout)
 
 | Linh Kiện | Chân Linh Kiện | Chân ESP32 | Ghi Chú |
 | :--- | :--- | :--- | :--- |
@@ -53,7 +53,7 @@ Dự án thùng rác thông minh sử dụng vi điều khiển **ESP32**, tích
 
 ---
 
-## 🛠️ Cài Đặt & Nạp Code
+##  Cài Đặt & Nạp Code
 
 Dự án được xây dựng bằng **PlatformIO** (VS Code hoặc PlatformIO Core CLI).
 
@@ -80,10 +80,10 @@ Dự án được xây dựng bằng **PlatformIO** (VS Code hoặc PlatformIO C
 
 ---
 
-## 📱 Hướng Dẫn Cấu Hình WiFi & Telegram
+##  Hướng Dẫn Cấu Hình WiFi & Telegram
 
 1. Sau khi bật nguồn ESP32, mở điện thoại và kết nối vào mạng WiFi: **`ThungRac-ThongMinh`**.
 2. Điện thoại sẽ tự động mở trang cấu hình (hoặc truy cập trình duyệt tại địa chỉ `http://192.168.4.1`).
 3. Bấm **"Quét mạng WiFi"** ➔ Chọn mạng WiFi gia đình (2.4GHz) ➔ Nhập mật khẩu.
 4. Nhập mã **Telegram Bot Token** (lấy từ `@BotFather`) và **Telegram Chat ID** (lấy từ `@userinfobot`).
-5. Bấm **`💾 LƯU CẤU HÌNH & KHỞI ĐỘNG LẠI`**. Thùng rác sẽ tự động khởi động lại và kết nối mạng!
+5. Bấm **` LƯU CẤU HÌNH & KHỞI ĐỘNG LẠI`**. Thùng rác sẽ tự động khởi động lại và kết nối mạng!
